@@ -16,6 +16,7 @@ os.system("CLS")
 
 num = random.randint(10, 1000)
 
+
 Attempts = 0
 Hits = 0
 
@@ -122,6 +123,7 @@ def generatecodes():
     while 1:
         t = time.localtime()
         current_time = time.strftime("%H:%M:%S", t)
+        nitro = random.randint(100000, 4000000)
         code = ("".join(random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=16)))
         url = "https://discordapp.com/api/v9/entitlements/gift-codes/" + code + "?with_application=false&with_subscription_plan=true"
         nitrourl = "https://discord.gift/" + code
@@ -129,7 +131,8 @@ def generatecodes():
         request = requests.get(url, proxies=proxies, headers=HEADER)
 
         if request.status_code == 429:
-            print(f"{Fore.BLUE}[{Fore.YELLOW}+{Fore.BLUE}]{Fore.CYAN} BruteForceX hit the ratelimit,{Fore.YELLOW} Less Than a Minute Remains!{Fore.RESET}")
+            print(f"{Fore.BLUE}[{Fore.YELLOW}-{Fore.BLUE}]{Fore.CYAN} BruteForceX hit the ratelimit,{Fore.YELLOW} Less Than a Minute Remains!{Fore.RESET}")
+            print(f"{Fore.BLUE}[{Fore.YELLOW}#{Fore.BLUE}]{Fore.CYAN} Nitro Codes to Snipe: {Fore.YELLOW}[{nitro}]{Fore.RESET}")
             time.sleep(65)                                            
             proxy_scrapehttp()
             proxo = httpproxy()
